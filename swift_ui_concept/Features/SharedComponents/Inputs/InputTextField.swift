@@ -23,3 +23,14 @@ struct InputTextField: View {
         .textFieldStyle(.roundedBorder)
     }
 }
+
+
+#Preview {
+    
+    @Previewable @State var text: String = ""
+    
+    return InputTextField(placeholder: "Hello", text: $text
+    ).padding()
+}
+
+

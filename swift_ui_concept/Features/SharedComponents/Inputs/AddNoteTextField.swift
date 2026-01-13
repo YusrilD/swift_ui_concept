@@ -26,8 +26,8 @@ struct AddNoteTextField: View {
 }
 
 private struct PreviewTextEditor: View {
-    @State var text = ""
     
+    @State var text = ""
     var body: some View{
         return AddNoteTextField(
             text: $text
