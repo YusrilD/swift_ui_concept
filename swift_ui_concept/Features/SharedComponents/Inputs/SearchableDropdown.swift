@@ -55,6 +55,29 @@ struct SearchableDropdown<Item: Identifiable & Hashable>: View {
     }
 }
 
-//#Preview {
-//    SearchableDropdown()
-//}
+#Preview {
+    PreviewDropdown()
+}
+
+private struct PreviewDropdown: View{
+    struct DummyItem: Identifiable, Hashable {
+        let id = UUID()
+        let name: String
+    }
+
+    @State var selected: DummyItem?
+    
+    var body: some View{
+        SearchableDropdown(
+            title: "Select Item",
+            items: [
+                DummyItem(name: "Bitcoin"),
+                DummyItem(name: "Ethereum"),
+                DummyItem(name: "Solana")
+            ],
+            display: { $0.name },
+            selectedItem: $selected
+        )
+        .padding()
+    }
+}
