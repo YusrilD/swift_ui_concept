@@ -43,3 +43,9 @@ struct PieGraph: View {
         return colors[index % colors.count]
     }
 }
+
+#Preview{
+    @Previewable @State var data: [Double] = [1,2,4,8,16]
+    
+    PieGraph(values: data)
+}
