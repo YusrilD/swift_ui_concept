@@ -20,3 +20,19 @@ struct AddNoteTextField: View {
             )
     }
 }
+
+#Preview {
+    PreviewTextEditor()
+}
+
+private struct PreviewTextEditor: View {
+    @State var text = ""
+    
+    var body: some View{
+        return AddNoteTextField(
+            text: $text
+        )
+        .padding()
+    }
+}
+
