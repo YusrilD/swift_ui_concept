@@ -6,39 +6,56 @@
 //
 
 import SwiftUI
+import Charts
+
 
 struct LineGraph: View {
-    let values: [Double]
 
-    private var normalizedValues: [CGFloat] {
-        guard let max = values.max(), max > 0 else { return [] }
-        return values.map { CGFloat($0 / max) }
-    }
+    struct MonthlyHoursOfSunshine {
+        var date: Date
+        var hoursOfSunshine: Double
 
-    var body: some View {
-        GeometryReader { geo in
-            Path { path in
-                guard normalizedValues.count > 1 else { return }
 
-                let width = geo.size.width
-                let height = geo.size.height
-                let stepX = width / CGFloat(normalizedValues.count - 1)
-
-                for index in normalizedValues.indices {
-                    let x = CGFloat(index) * stepX
-                    let y = height - (normalizedValues[index] * height)
-
-                    if index == 0 {
-                        path.move(to: CGPoint(x: x, y: y))
-                    } else {
-                        path.addLine(to: CGPoint(x: x, y: y))
-                    }
-                }
-            }
-            .stroke(
-                Color.blue,
-                style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round)
-            )
+        init(month: Int, hoursOfSunshine: Double) {
+            let calendar = Calendar.autoupdatingCurrent
+            self.date = calendar.date(from: DateComponents(year: 2020, month: month))!
+            self.hoursOfSunshine = hoursOfSunshine
         }
     }
+
+
+    var data: [MonthlyHoursOfSunshine] = [
+        MonthlyHoursOfSunshine(month: 1, hoursOfSunshine: 74),
+        MonthlyHoursOfSunshine(month: 2, hoursOfSunshine: 99),
+        // ...
+        MonthlyHoursOfSunshine(month: 12, hoursOfSunshine: 62)
+    ]
+    
+
+    var body: some View {
+        Chart(data) {
+                LineMark(
+                    x: .value("Month", $0.date),
+                    y: .value("Hours of Sunshine", $0.hoursOfSunshine)
+                )
+            }
+    }
+}
+
+//struct MonthlyHoursOfSunshine: Identifiable {
+//    var id = UUID()
+//    
+//    var date: Date
+//    var hoursOfSunshine: Double
+//
+//
+//    init(month: Int, hoursOfSunshine: Double) {
+//        let calendar = Calendar.autoupdatingCurrent
+//        self.date = calendar.date(from: DateComponents(year: 2020, month: month))!
+//        self.hoursOfSunshine = hoursOfSunshine
+//    }
+//}
+
+#Preview {
+    LineGraph()
 }

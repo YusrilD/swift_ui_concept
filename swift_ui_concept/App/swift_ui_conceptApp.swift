@@ -11,7 +11,7 @@ import SwiftUI
 struct swift_ui_conceptApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LineGraph()
         }
     }
 }
