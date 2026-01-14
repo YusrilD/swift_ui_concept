@@ -25,3 +25,8 @@ struct ProgressChip: View {
 }
 
 
+#Preview {
+    ProgressChip(
+        title: "Success",
+        progress: 0.5)
+}
