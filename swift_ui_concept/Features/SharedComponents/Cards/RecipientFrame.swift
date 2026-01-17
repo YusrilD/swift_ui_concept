@@ -25,3 +25,9 @@ struct RecipientFrame: View {
         )
     }
 }
+
+#Preview{
+    RecipientFrame(
+        name: "John Doe",
+        address: "0x3CJOEMCIJWEEEW")
+}
