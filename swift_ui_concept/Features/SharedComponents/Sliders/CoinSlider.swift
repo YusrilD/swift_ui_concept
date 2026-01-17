@@ -15,3 +15,12 @@ struct CoinSlider: View {
         Slider(value: $value, in: range)
     }
 }
+
+#Preview {
+    @Previewable @State var value = 50.0
+
+    return CoinSlider(
+        value: $value,
+        range: 0...100
+    ).padding()
+}
