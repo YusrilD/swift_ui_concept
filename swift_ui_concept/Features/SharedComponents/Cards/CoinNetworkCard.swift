@@ -22,3 +22,7 @@ struct CoinNetworkCard: View {
         .cornerRadius(12)
     }
 }
+
+#Preview{
+    CoinNetworkCard(networkName: "A", fee: "B")
+}
