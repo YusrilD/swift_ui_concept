@@ -22,3 +22,7 @@ struct CoinCard: View {
         .cornerRadius(12)
     }
 }
+
+#Preview {
+    CoinCard(symbol: "BTC", price: "$4800,0")
+}
