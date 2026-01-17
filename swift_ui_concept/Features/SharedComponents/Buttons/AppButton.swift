@@ -24,3 +24,11 @@ struct AppButton: View {
         .disabled(isDisabled)
     }
 }
+
+#Preview {
+    AppButton(
+        title: "Next",
+        action: {},
+        isDisabled: false
+    )
+}
