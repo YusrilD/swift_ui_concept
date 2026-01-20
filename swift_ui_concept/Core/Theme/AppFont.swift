@@ -8,7 +8,19 @@
 import SwiftUI
 
 enum AppFont {
-    static let body = Font.system(size: 16)
-    static let title = Font.system(size: 20, weight: .semibold)
-    static let caption = Font.system(size: 12)
+    static func regular(_ size: CGFloat) -> Font {
+        .custom("Inter-Regular", size: size)
+    }
+
+    static func medium(_ size: CGFloat) -> Font {
+        .custom("Inter-Medium", size: size)
+    }
+
+    static func semibold(_ size: CGFloat) -> Font {
+        .custom("Inter-SemiBold", size: size)
+    }
+
+    static func bold(_ size: CGFloat) -> Font {
+        .custom("Inter-Bold", size: size)
+    }
 }
