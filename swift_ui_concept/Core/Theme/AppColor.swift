@@ -17,6 +17,7 @@ enum AppColor {
     // MARK: - Background
     static let background = Color(hex: "#FFFFFF")
     static let surface = Color(hex: "#F5F5F5")
+    static let buttonBackground = Color(hex: "#DB8C09")
 
     // MARK: - Text
     static let textPrimary = Color(hex: "#1F1F1F")

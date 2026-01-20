@@ -17,10 +17,11 @@ struct AppButton: View {
             Text(title)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(isDisabled ? Color.gray : Color.blue)
+                .background(isDisabled ? Color.gray : AppColor.buttonBackground)
                 .foregroundColor(.white)
                 .cornerRadius(10)
         }
+        .frame(height: 48)
         .disabled(isDisabled)
     }
 }
