@@ -15,13 +15,15 @@ struct AppButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(AppFont.bold(24))
+                .font(.system(size: 24.0, weight: .bold))
                 .frame(maxWidth: .infinity)
-                .padding()
-                .background(isDisabled ? Color.gray : AppColor.buttonBackground)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                .padding(.vertical)
+                .foregroundStyle(.white)
         }
+        
+        .background(isDisabled ? .gray : .amber)
+        .clipShape(.rect(cornerRadius: 12.0))
+        .padding(.horizontal)
         .disabled(isDisabled)
     }
 }
